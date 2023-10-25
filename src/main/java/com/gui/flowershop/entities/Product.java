@@ -1,13 +1,11 @@
 package com.gui.flowershop.entities;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
 @Table(name="product")
+@Entity
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,6 +15,7 @@ public class Product {
     private Integer copies;
     private Integer copiesAvailable;
     private String category;
+    @Column(name="img")
     private String img;
 
 
