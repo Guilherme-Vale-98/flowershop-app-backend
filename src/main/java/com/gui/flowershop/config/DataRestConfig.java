@@ -1,6 +1,7 @@
 package com.gui.flowershop.config;
 
 import com.gui.flowershop.entities.Product;
+import com.gui.flowershop.entities.Review;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
@@ -21,8 +22,9 @@ public class DataRestConfig implements RepositoryRestConfigurer {
         };
 
         config.exposeIdsFor(Product.class);
-
+        config.exposeIdsFor(Review.class);
         disableHttpMethods(Product.class, config, unsupportedActions);
+        disableHttpMethods(Review.class, config, unsupportedActions);
 
         cors.addMapping(config.getBasePath() + "/**").allowedOrigins(allowedOrigins);
     }
